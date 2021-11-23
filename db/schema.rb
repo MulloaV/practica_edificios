@@ -12,10 +12,13 @@
 
 ActiveRecord::Schema.define(version: 2021_10_28_002306) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "apartments", force: :cascade do |t|
     t.integer "number"
     t.string "status"
-    t.integer "building_id", null: false
+    t.bigint "building_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["building_id"], name: "index_apartments_on_building_id"
@@ -25,7 +28,7 @@ ActiveRecord::Schema.define(version: 2021_10_28_002306) do
     t.string "name"
     t.string "address"
     t.string "city"
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_buildings_on_user_id"
