@@ -6,5 +6,5 @@ Rails.application.routes.draw do
     resources :apartments
   end
   devise_for :users
-    root to: 'buildings#index'
+    root to: 'buildings#index' 
 end
