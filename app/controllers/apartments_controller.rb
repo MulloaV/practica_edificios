@@ -36,7 +36,7 @@ class ApartmentsController < ApplicationController
   # PUT buildings/1/apartments/1
   def update
     if @apartment.update_attributes(apartment_params)
-      redirect_to([@apartment.building, @apartment], notice: 'Apartment was successfully updated.')
+      redirect_to([@apartment.building, @apartment])
     else
       render action: 'edit'
     end
@@ -46,7 +46,7 @@ class ApartmentsController < ApplicationController
   def destroy
     @apartment.destroy
 
-    redirect_to building_apartments_url(@building)
+    redirect_to @building 
   end
 
   private
