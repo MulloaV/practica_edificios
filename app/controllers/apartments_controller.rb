@@ -10,6 +10,7 @@ class ApartmentsController < ApplicationController
 
   # GET buildings/1/apartments/1
   def show
+    @apartment = @building.apartments.find
   end
 
   # GET buildings/1/apartments/new
