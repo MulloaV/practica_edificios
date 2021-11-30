@@ -1,37 +1,23 @@
 <div class='card'>
-  <div class='card-header'>
-    <h2 class="card-title d-flex justify-content-between">
+  <div class='card-body'>
+    <h2 class="card-title d-flex justify-content-between mb-4">
       <span> Edificios </span>
      <%= link_to  'Nuevo Edificio',new_building_path, class: 'btn btn-primary' %>
     </h2>
-  </div>
-  <div class='card-body'>
-    <table>
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Dirección</th>
-            <th>Ciudad</th>
-            <th>User</th>
-            <th colspan="3"></th>
-          </tr>
-        </thead>
 
-      <tbody>
-        <% @buildings.each do |building| %>
-          <tr>
-            <td><%= building.name %></td>
-            <td><%= building.address %></td>
-            <td><%= building.city %></td>
-            <td><%= building.user_id %></td>
-            <td><%= link_to 'Show', building %></td>
-            <td><%= link_to 'Edit', edit_building_path(building) %></td>
-            <td><%= link_to 'Destroy', building, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-    <br>
+    <% @building.each do |building| %>
+      <%= link_to building do %>
+        <div class='card'>
+          <div class='card-body'>
+            <h5 class='card-title'><%= building.name %></h5>
+            <p><%= building.address %></p>
+          </div>
+        </div>
+      <% end %>  
+    <% end %>
+  
+    
+    
 
 
 
