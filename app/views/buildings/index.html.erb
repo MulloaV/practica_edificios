@@ -5,7 +5,7 @@
      <%= link_to  'Nuevo Edificio',new_building_path, class: 'btn btn-primary' %>
     </h2>
 
-    <% @building.each do |building| %>
+    <% @buildings.each do |building| %>
       <%= link_to building do %>
         <div class='card'>
           <div class='card-body'>
