@@ -9,7 +9,30 @@
     </h2>
       <h6>Agregar Departamento</h6>
 
-      <%= render 'apartments/form' %>
+          <%= form_for([@apartment.building, @apartment]) do |f| %>
+            <% if @apartment.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@apartment.errors.count, "error") %> no se puede guardar este Departamento:</h2>
+
+                  <ul>
+                  <% @apartment.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                  <% end %>
+                  </ul>
+              </div>
+            <% end %>
+
+            <div class="input-group">
+             
+              <%= f.number_field :number, class: 'form-control' %>
+              <%= f.select :status, Apartment::STATUS_OPTION,  class: 'form-control' %>
+              <div class='input-group-append'>
+                <%= f.submit  class: 'btn btn-primary' %>
+              </div>
+            </div>
+            
+           
+          <% end %>
   </div>
 </div>
 
