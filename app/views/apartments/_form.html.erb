@@ -1,7 +1,7 @@
-<%= form_for([@apartment.building, @apartment], html: { class: 'form-inline' }) do |f| %>
+<%= form_with(model: [@apartment.building, @apartment], html: { class: 'form-inline' }) do |f| %>
   <% if @apartment.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@apartment.errors.count, "error") %> no se puede guardar este departamento:</h2>
+      <h2><%= pluralize(@apartment.errors.count, "error") %> prohibited this apartment from being saved:</h2>
 
       <ul>
       <% @apartment.errors.full_messages.each do |msg| %>
