@@ -43,8 +43,11 @@
             <% if apartment.persisted? %>
                 <div class='card'>
                   <div class='card-body'>
-                    <span class='badge badge-primary'><%= apartment.status %></span>
-                    <h5><%= apartment.number %></h5>
+                    <span class='badge badge-secundary'><%= apartment.status %></span>
+                    <h5 class="card-title d-flex justify-content-between mb-4"><%= apartment.number %>
+                    <td><%= link_to 'Editar', edit_building_apartment_path(apartment.building, apartment) %></td>
+                    <td><%= link_to 'Eliminar', [apartment.building, apartment], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    </h5>
                     <p><%= apartment.building %></p>
                   </div>
                 </div>
