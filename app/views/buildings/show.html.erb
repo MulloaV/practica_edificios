@@ -47,11 +47,11 @@
                     <h5 class="card-title d-flex justify-content-between mb-4">
                     <span><%= apartment.number %></span>
                     <div>
-                      <%= link_to 'Editar', edit_building_apartment_path(apartment.building, apartment), class: 'btn btn-danger' %>
+                      <%= link_to 'Editar', edit_building_apartment_path(apartment.building, apartment), class: 'btn btn-warning' %>
                       <%= link_to 'Eliminar', [apartment.building, apartment], method: :delete, class:'btn btn-danger', data: { confirm: 'Are you sure?' } %>
                     </div>
                     </h5>
-                    <p><%= apartment.building %></p>
+                    
                   </div>
                 </div>
             <% end  %>    
