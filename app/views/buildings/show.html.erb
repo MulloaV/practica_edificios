@@ -40,7 +40,7 @@
 
           <h4> Departamentos </h4>
           <% @building.apartments.each do |apartment| %>
-            <% if task.persisted? %>
+            <% if apartment.persisted? %>
                 <div class='card'>
                   <div class='card-body'>
                     <span class='badge badge-primary'><% apartment.status %></span>
