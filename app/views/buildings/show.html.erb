@@ -43,8 +43,9 @@
             <% if apartment.persisted? %>
                 <div class='card'>
                   <div class='card-body'>
-                    <span class='badge badge-primary'><% apartment.status %></span>
-                    <h5><% apartment.number %></h5>
+                    <span class='badge badge-primary'><%= apartment.status %></span>
+                    <h5><%= apartment.number %></h5>
+                    <p><%= apartment.building %></p>
                   </div>
                 </div>
             <% end  %>    
