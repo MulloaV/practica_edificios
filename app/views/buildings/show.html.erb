@@ -1,3 +1,4 @@
+<%= link_to 'Back', buildings_path, class: 'btn btn-light mb-3' %>
 <div class='card'>
   <div class='card-body'>
     <h2 class="card-title d-flex justify-content-between mb-4">
@@ -7,7 +8,8 @@
         <%= link_to 'Elimi', @building, method: :delete, class: 'btn btn-danger', data: {confirm: '¿Estás seguro?'} %>
       </div>
     </h2>
-      <h6>Agregar Departamento</h6>
+    <div class='mb-4'>
+       <h6>Agregar Departamento</h6>
 
           <%= form_for([@apartment.building, @apartment]) do |f| %>
             <% if @apartment.errors.any? %>
@@ -33,31 +35,25 @@
             
            
           <% end %>
+    </div>
+     
+
+          <h4> Departamentos </h4>
+          <% @building.apartments.each do |apartment| %>
+            <% if task.persisted? %>
+                <div class='card'>
+                  <div class='card-body'>
+                    <span class='badge badge-primary'><% apartment.status %></span>
+                    <h5><% apartment.number %></h5>
+                  </div>
+                </div>
+            <% end  %>    
+          <% end %>
   </div>
 </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @building.name %>
-</p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @building.address %>
-</p>
 
-<p>
-  <strong>City:</strong>
-  <%= @building.city %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @building.user_id %>
-</p>
-
- |
-<%= link_to 'Back', buildings_path %>
 
 <hr>
 <h1>New apartment</h1>
