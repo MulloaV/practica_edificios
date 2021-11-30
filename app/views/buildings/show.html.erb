@@ -1,4 +1,17 @@
-<p id="notice"><%= notice %></p>
+<div class='card'>
+  <div class='card-body'>
+    <h2 class="card-title d-flex justify-content-between mb-4">
+      <span> <%= @building.name %> </span>
+      <div>
+        <%= link_to 'Editar', edit_building_path(@building), class: 'btn btn-warning' %>
+        <%= link_to 'Elimi', @building, method: :delete, class: 'btn btn-danger', data: {confirm: '¿Estás seguro?'} %>
+      </div>
+    </h2>
+      <h6>Agregar Departamento</h6>
+
+      <%= render 'apartments/form' %>
+  </div>
+</div>
 
 <p>
   <strong>Name:</strong>
@@ -20,7 +33,7 @@
   <%= @building.user_id %>
 </p>
 
-<%= link_to 'Edit', edit_building_path(@building) %> |
+ |
 <%= link_to 'Back', buildings_path %>
 
 <hr>
