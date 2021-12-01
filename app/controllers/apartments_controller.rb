@@ -35,8 +35,8 @@ class ApartmentsController < ApplicationController
 
   # PUT buildings/1/apartments/1
   def update
-    if @apartment.update_attributes(apartment_params)
-      redirect_to([@apartment.building, @apartment])
+    if @apartment.update(apartment_params)
+      redirect_to(@apartment.building)
     else
       render action: 'edit'
     end
