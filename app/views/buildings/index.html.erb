@@ -6,12 +6,12 @@
     </h2>
 
     <% @buildings.each do |building| %>
-      <%= link_to building do %>
-        <div class='card'>
+      <%= link_to building, class: 'text-decoration-none' do %>
+        <div class='card building-card'>
           <div class='card-body'>
-            <h5 class='card-title'><%= building.name %></h5>
-            <p><%= building.address %></p>
-            <p><%= building.city %></p>
+            <h5 class='card-title text-dark'><b><%= building.name %> </b></h5>
+            <p class='text-secondary'><%= building.address %></p>
+            <p class='text-secondary'><%= building.city %></p>
           </div>
         </div>
       <% end %>  

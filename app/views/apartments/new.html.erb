@@ -1,5 +1,14 @@
-<h1>New apartment</h1>
+<%= link_to 'Back', buildings_path, class: 'btn btn-secondary' %>
+<div class='card'>
+  <div class='card-body'>
+        <h2 class="card-title  mb-4">
+            <span> Nuevo Edificio </span>
+        </h2>
+        <%= render 'form', apartment: @apartment %>
+   </div>
+</div>
 
-<%= render 'form' %>
 
-<%= link_to 'Back', building_apartments_path(@apartment.building) %>
+
+
+
