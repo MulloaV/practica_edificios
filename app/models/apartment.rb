@@ -8,4 +8,15 @@ class Apartment < ApplicationRecord
     ['Disponible','disponible'],
     ['Propietario','propietario']]
     
+
+  def badge_color 
+    case status
+    when 'arrendado'
+      'secondary'
+    when 'disponible'
+      'success'
+    when 'propietario'
+      'info'
+    end
+  end
 end

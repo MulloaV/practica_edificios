@@ -4,8 +4,8 @@
     <h2 class="card-title d-flex justify-content-between mb-4">
       <span> <%= @building.name %> </span>
       <div>
-        <%= link_to 'Editar', edit_building_path(@building), class: 'btn btn-warning' %>
-        <%= link_to 'Elimi', @building, method: :delete, class: 'btn btn-danger', data: {confirm: '¿Estás seguro?'} %>
+        <%= link_to 'Editar', edit_building_path(@building), class: 'btn btn-light' %>
+        <%= link_to 'Eliminar', @building, method: :delete, class: 'btn btn-secondary', data: {confirm: '¿Estás seguro?'} %>
       </div>
     </h2>
     <div class='mb-4'>
@@ -41,15 +41,19 @@
           <h4> Departamentos </h4>
           <% @building.apartments.each do |apartment| %>
             <% if apartment.persisted? %>
-                <div class='card'>
+                <div class='card mb-3'>
                   <div class='card-body'>
-                    <p><%= apartment.status %></p>
-                    <h5 class="card-title d-flex justify-content-between mb-4">
-                    <span><%= apartment.number %></span>
-                    <div>
-                      <%= link_to 'Editar', edit_building_apartment_path(apartment.building, apartment), class: 'btn btn-warning' %>
-                      <%= link_to 'Eliminar', [apartment.building, apartment], method: :delete, class:'btn btn-danger', data: { confirm: 'Are you sure?' } %>
+                    <div class='d-flex justify-content-between'>
+                      <span class='badge badge-<%= task.badge_color %> mb-3'><%= apartment.status %></span>
                     </div>
+                    <div>
+                        <%= link_to 'Editar', edit_building_apartment_path(apartment.building, apartment), class: 'btn btn-light btn-sm' %>
+                        <%= link_to 'Eliminar', [apartment.building, apartment], method: :delete, class:'btn btn-secondary btn-sm', data: { confirm: 'Are you sure?' } %>
+                    </div>
+                    
+                    <h5 class="card-title  mb-2">
+                      <span><%= apartment.number %></span>
+                     
                     </h5>
                     
                   </div>
