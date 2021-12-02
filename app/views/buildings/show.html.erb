@@ -1,4 +1,4 @@
-<%= link_to 'Back', buildings_path, class: 'btn btn-secondary mb-3' %>
+<%= link_to 'Volver', buildings_path, class: 'btn btn-secondary mb-3' %>
 <div class='card'>
   <div class='card-body'>
     <h2 class="card-title d-flex justify-content-between mb-4">
@@ -14,24 +14,26 @@
           <%= form_for([@apartment.building, @apartment]) do |f| %>
             <% if @apartment.errors.any? %>
               <div id="error_explanation">
-                <h2><%= pluralize(@apartment.errors.count, "error") %> no se puede guardar este Departamento:</h2>
+                  <h2><%= pluralize(@apartment.errors.count, "error") %> no se puede guardar este Departamento:</h2>
 
                   <ul>
-                  <% @apartment.errors.full_messages.each do |msg| %>
-                    <li><%= msg %></li>
-                  <% end %>
+                    <% @apartment.errors.full_messages.each do |msg| %>
+                      <li><%= msg %></li>
+                    <% end %>
                   </ul>
               </div>
             <% end %>
 
-            <div class="input-group">
+            
+            <div class="input-group mb-3">
              
               <%= f.number_field :number, class: 'form-control' %>
               <%= f.select :status, Apartment::STATUS_OPTION,  class: 'form-control' %>
-              <div class='input-group-append'>
+            </div>  
+            <div class='input-group-append'>
                 <%= f.submit  class: 'btn btn-primary' %>
-              </div>
             </div>
+            
             
            
           <% end %>
@@ -45,10 +47,10 @@
                   <div class='card-body'>
                     <div class='d-flex justify-content-between'>
                       <span class='badge badge-<%= apartment.badge_color %> mb-3'><%= apartment.status %></span>
-                    </div>
-                    <div>
+                      <div>
                         <%= link_to 'Editar', edit_building_apartment_path(apartment.building, apartment), class: 'btn btn-light btn-sm' %>
                         <%= link_to 'Eliminar', [apartment.building, apartment], method: :delete, class:'btn btn-dark btn-sm', data: { confirm: 'Are you sure?' } %>
+                      </div>
                     </div>
                     
                     <h5 class="card-title  mb-2">
