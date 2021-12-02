@@ -11,17 +11,18 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :number %><br />
-    <%= f.number_field :number %>
+  <div class="form-group">
+    <%= f.label :Número Departamento %><br />
+    <%= f.number_field :number, class:'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :status %><br />
-    <%= f.select :status, Apartment::STATUS_OPTION %>
+  <div class="form-group">
+    <%= f.label :Estado %><br />
+    <%= f.select :status, Apartment::STATUS_OPTION, {}, class:'form-control' %>
   </div>
   
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-primary' %>
   </div>
 <% end %>
+ 
  

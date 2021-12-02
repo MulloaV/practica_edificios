@@ -1,6 +1,9 @@
-<h1>Editing apartment</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', [@apartment.building, @apartment] %> |
-<%= link_to 'Back', building_apartments_path(@apartment.building) %>
+<%= link_to 'Volver', @building, class: 'btn btn-secondary mb-3' %>
+<div class='card'>
+  <div class='card-body'>
+        <h2 class="card-title  mb-4">
+            <span> Editar Departamento </span>
+        </h2>
+        <%= render 'form' %>
+   </div>
+</div>

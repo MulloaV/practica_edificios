@@ -1,6 +1,9 @@
-<h1>Editing Building</h1>
-
-<%= render 'form', building: @building %>
-
-<%= link_to 'Show', @building %> |
-<%= link_to 'Back', buildings_path %>
+<%= link_to 'Volver', buildings_path, class: 'btn btn-secondary mb-3' %>
+<div class='card'>
+  <div class='card-body'>
+        <h2 class="card-title  mb-4">
+            <span> Editar Edificio </span>
+        </h2>
+        <%= render 'form', building: @building %>
+   </div>
+</div>
