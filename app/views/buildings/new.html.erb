@@ -1,5 +1,12 @@
-<h1>New Building</h1>
+<%= link_to 'Volver', buildings_path, class: 'btn btn-secondary mb-3' %>
+<div class='card'>
+  <div class='card-body'>
+        <h2 class="card-title  mb-4">
+            <span> Nuevo Edificio </span>
+        </h2>
+        <%= render 'form', building: @building %>
+   </div>
+</div>
 
-<%= render 'form', building: @building %>
 
-<%= link_to 'Back', buildings_path %>
+
