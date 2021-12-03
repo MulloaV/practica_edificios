@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   end
   devise_for :users
     root to: 'buildings#index' 
+    get '/users/sign_out' => 'devise/sessions#destroy'
 end
