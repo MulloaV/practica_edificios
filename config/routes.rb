@@ -5,13 +5,12 @@ Rails.application.routes.draw do
   namespace :building do
     resources :apartments
   end
+
   devise_for :users
     root to: 'buildings#index' 
-  end   
     
-  devise_for :users do
-    get '/users/sign_out' => 'devise/sessions#destroy'
-  end
+    
+ 
   
   
 end
