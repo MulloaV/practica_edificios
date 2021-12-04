@@ -46,9 +46,10 @@
           
       </div>
      </div>
-          
+        <div class='card'>
+          <div class='card-body'>   
 
-                <h4> Departamentos </h4>
+                <h4 class="card-title d-flex justify-content-between mb-4"> Departamentos </h4>
                 <% @building.apartments.each do |apartment| %>
                   <% if apartment.persisted? %>
                       <div class='card mb-3'>
@@ -70,7 +71,8 @@
                       </div>
                   <% end  %>    
                 <% end %>
-  
+          </div>
+        </div>
   
   
   </div>
