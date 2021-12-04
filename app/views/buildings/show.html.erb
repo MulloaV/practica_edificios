@@ -12,7 +12,7 @@
      <div class='card'>
       <div class='card-body'>
           
-                <h2 class="card-title d-flex justify-content-between mb-4" >Agregar Departamento</h2>
+                <h4 class="card-title d-flex justify-content-between mb-4" >Agregar Departamento</h4>
 
                 <%= form_for([@apartment.building, @apartment]) do |f| %>
                   <% if @apartment.errors.any? %>
@@ -28,11 +28,11 @@
                   <% end %>
                   <div class='card'>
                     <div class='card-body'>
-                      <div class="input-group mb-3">
+                      <div class="form-group mb-3">
                         <%= f.label :Número, class: 'form-label'%> 
                         <%= f.number_field :number, class: 'form-control' %>
                       </div>
-                      <div class="input-group mb-3">
+                      <div class="form-group mb-3">
                         <%= f.label :Estado, class:'form-label' %>
                         <%= f.select :status, Apartment::STATUS_OPTION,  class: 'form-control' %>
                       </div>  
