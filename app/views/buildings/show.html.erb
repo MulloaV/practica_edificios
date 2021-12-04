@@ -8,63 +8,71 @@
         <%= link_to 'Eliminar', @building, method: :delete, class: 'btn btn-secondary', data: {confirm: '¿Estás seguro?'} %>
       </div>
     </h2>
-    <div class='mb-4'>
-       <h6>Agregar Departamento</h6>
 
-          <%= form_for([@apartment.building, @apartment]) do |f| %>
-            <% if @apartment.errors.any? %>
-              <div id="error_explanation">
-                  <h2><%= pluralize(@apartment.errors.count, "error") %> no se puede guardar este Departamento:</h2>
+     <div class='card'>
+      <div class='card-body'>
+          
+                <h2 class="card-title d-flex justify-content-between mb-4" >Agregar Departamento</h2>
 
-                  <ul>
-                    <% @apartment.errors.full_messages.each do |msg| %>
-                      <li><%= msg %></li>
-                    <% end %>
-                  </ul>
-              </div>
-            <% end %>
-            <div class='card'>
-              <div class='card-body'>
-                <div class="input-group mb-3">
-                  <%= f.label :Número, class: 'form-label'%> 
-                  <%= f.number_field :number, class: 'form-control' %>
-                </div>
-                <div class="input-group mb-3">
-                  <%= f.label :Estado, class:'form-label' %>
-                  <%= f.select :status, Apartment::STATUS_OPTION,  class: 'form-control' %>
-                </div>  
-                <div class='input-group-append'>
-                    <%= f.submit "Crear",   class: 'btn btn-primary' %>
-                </div>
-              </div>  
-            </div>
-           
-          <% end %>
-    </div>
-     
+                <%= form_for([@apartment.building, @apartment]) do |f| %>
+                  <% if @apartment.errors.any? %>
+                    <div id="error_explanation">
+                        <h2><%= pluralize(@apartment.errors.count, "error") %> no se puede guardar este Departamento:</h2>
 
-          <h4> Departamentos </h4>
-          <% @building.apartments.each do |apartment| %>
-            <% if apartment.persisted? %>
-                <div class='card mb-3'>
-                  <div class='card-body'>
-                    <div class='d-flex justify-content-between'>
-                      <span class='badge badge-<%= apartment.badge_color %> mb-3'><%= apartment.status %></span>
-                      <div>
-                        <%= link_to 'Editar', edit_building_apartment_path(apartment.building, apartment), class: 'btn btn-light btn-sm' %>
-                        <%= link_to 'Eliminar', [apartment.building, apartment], method: :delete, class:'btn btn-dark btn-sm', data: { confirm: 'Are you sure?' } %>
-                      </div>
+                        <ul>
+                          <% @apartment.errors.full_messages.each do |msg| %>
+                            <li><%= msg %></li>
+                          <% end %>
+                        </ul>
                     </div>
-                    
-                    <h5 class="card-title  mb-2">
-                      <span><%= apartment.number %></span>
-                     
-                    </h5>
-                    
+                  <% end %>
+                  <div class='card'>
+                    <div class='card-body'>
+                      <div class="input-group mb-3">
+                        <%= f.label :Número, class: 'form-label'%> 
+                        <%= f.number_field :number, class: 'form-control' %>
+                      </div>
+                      <div class="input-group mb-3">
+                        <%= f.label :Estado, class:'form-label' %>
+                        <%= f.select :status, Apartment::STATUS_OPTION,  class: 'form-control' %>
+                      </div>  
+                      <div class='input-group-append'>
+                          <%= f.submit "Crear",   class: 'btn btn-primary' %>
+                      </div>
+                    </div>  
                   </div>
-                </div>
-            <% end  %>    
-          <% end %>
+                
+                <% end %>
+          
+      </div>
+     </div>
+          
+
+                <h4> Departamentos </h4>
+                <% @building.apartments.each do |apartment| %>
+                  <% if apartment.persisted? %>
+                      <div class='card mb-3'>
+                        <div class='card-body'>
+                          <div class='d-flex justify-content-between'>
+                            <span class='badge badge-<%= apartment.badge_color %> mb-3'><%= apartment.status %></span>
+                            <div>
+                              <%= link_to 'Editar', edit_building_apartment_path(apartment.building, apartment), class: 'btn btn-light btn-sm' %>
+                              <%= link_to 'Eliminar', [apartment.building, apartment], method: :delete, class:'btn btn-dark btn-sm', data: { confirm: 'Are you sure?' } %>
+                            </div>
+                          </div>
+                          
+                          <h5 class="card-title  mb-2">
+                            <span><%= apartment.number %></span>
+                          
+                          </h5>
+                          
+                        </div>
+                      </div>
+                  <% end  %>    
+                <% end %>
+  
+  
+  
   </div>
 </div>
 
